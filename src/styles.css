@@ -1,0 +1,120 @@
+:root {
+  --accent: #2563eb;
+}
+
+body, html, #root {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background: #fafafa;
+}
+
+.app {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.toolbar {
+  display: flex;
+  align-items: center;
+  padding: 10px 14px;
+  background: #fff;
+  border-bottom: 1px solid #ddd;
+  gap: 10px;
+}
+
+.toolbar button {
+  padding: 6px 12px;
+  font-size: 14px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  background: #f3f3f3;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.1s;
+}
+
+.toolbar button:hover {
+  background: #e5e5e5;
+  transform: scale(1.05);
+}
+
+.hint {
+  font-size: 12px;
+  color: #555;
+  margin-left: auto;
+  font-style: italic;
+}
+
+.canvas {
+  position: relative;
+  flex: 1;
+  background: #f3f4f6;
+  overflow: hidden;
+}
+
+.note {
+  position: absolute;
+  border: 1px solid #d1d5db;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  display: flex;
+  flex-direction: column;
+  resize: both;
+  overflow: hidden;
+  border-radius: 4px;
+  transition: box-shadow 0.2s;
+}
+
+.note:hover {
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+.note textarea {
+  flex: 1;
+  border: none;
+  padding: 6px;
+  font-size: 14px;
+  resize: none;
+  background: transparent;
+}
+
+.note .footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 4px 6px;
+  background: rgba(255,255,255,0.5);
+  border-top: 1px solid #e5e7eb;
+}
+
+.trash {
+  position: fixed;
+  bottom: 16px;
+  right: 16px;
+  width: 150px;
+  height: 150px;
+  z-index: 9999;
+  background: #ebe8e5;
+  border: 2px dashed #9ca3af;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px;
+  font-size: 14px;
+  transition: background 0.2s, border-color 0.2s, transform 0.1s;
+}
+
+.trash.hot {
+  background: #fecaca;
+  border-color: #dc2626;
+  transform: scale(1.1);
+}
+
+.rubberband {
+  position: absolute;
+  border: 2px dashed var(--accent);
+  background: rgba(37, 99, 235, 0.1);
+  pointer-events: none;
+}
